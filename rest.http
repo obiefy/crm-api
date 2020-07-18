@@ -1,0 +1,71 @@
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1NmFlZWIzYmIxZDkwNjhiZGM3MCIsInJvbGUiOiJzdXBlci1hZG1pbiIsImlhdCI6MTU5NTEwNDQ3MCwiZXhwIjoxNTk1MTQwNDcwfQ.nhLP8FNBNmWJyxNbwWByzWb6ju_iZOjrUFFBwhqObsc
+
+@staffToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1YTgxYzAyZTNiZGI0N2I4M2RhZiIsInJvbGUiOiJzdGFmZiIsImlhdCI6MTU5NTEwNDYyNCwiZXhwIjoxNTk1MTQwNjI0fQ.-gIHowswmQ7W55v497Fr_3RR5VGgScA_Y3fcwZhz6mY
+
+@url = http://localhost:4000
+
+
+# Get all users
+GET {{url}}/api/users
+Authorization: Bearer {{adminToken}}
+
+###
+
+# Get one user
+GET {{url}}/api/users/5f1356aeeb3bb1d9068bdc70
+Authorization: Bearer {{adminToken}}
+
+###
+
+# Add new user
+POST {{url}}/api/users
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "name": "Staff",
+    "email": "staff@gmail.com",
+    "password": "123456",
+    "role": "staff"
+}
+
+###
+
+# Update user data
+PUT {{url}}/api/users/5f135f8fb46fa1de4df589c1
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "name": "New User Name",
+    "email": "new-email@gmail.com",
+    "password": "123456"
+}
+
+### 
+
+# Delete user data
+DELETE {{url}}/api/users/5f135f784b5888de29e5b6d5
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+###
+
+
+# AUTH ENDPOINTS
+
+
+# Login
+POST {{url}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "obay@gmail.com",
+    "password": "123456"
+}
+
+###
+
+# Get profile
+GET {{url}}/api/auth/user
+Authorization: Bearer {{adminToken}}
