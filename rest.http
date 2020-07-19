@@ -1,8 +1,8 @@
-@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1NmFlZWIzYmIxZDkwNjhiZGM3MCIsInJvbGUiOiJzdXBlci1hZG1pbiIsImlhdCI6MTU5NTE1ODQ1NCwiZXhwIjoxNTk1MTk0NDU0fQ.z1WM36g-wQEU1jl5tJ87bnGsZ0h_s2Mpb5LpkUY6ln4
+@adminToken = 
 
-@staffToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTQzMDI5OTI4N2I0NDM2NjEwMGZhOSIsInJvbGUiOiJzdGFmZiIsImlhdCI6MTU5NTE1ODU3NCwiZXhwIjoxNTk1MTk0NTc0fQ.nMIvxePatOteQEUP3mr_oru8roXVwWiZ_rP1fTbGAB4
+@staffToken = 
 
-@url = http://localhost:4000
+@url = https://crm-api-demo.herokuapp.com
 
 
 # Get all users
@@ -23,10 +23,10 @@ Authorization: Bearer {{adminToken}}
 Content-Type: application/json
 
 {
-    "name": "Staff",
-    "email": "staff@gmail.com",
-    "password": "123456",
-    "role": "staff"
+    "name": "Admin",
+    "email": "admin@admin.com",
+    "password": "secret",
+    "role": "super-admin"
 }
 
 ###
