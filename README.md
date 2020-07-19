@@ -21,4 +21,4 @@ RESTful API from CRM demo
   
 * Run application:
 
-  `npm start server`
+  `npm run server`
