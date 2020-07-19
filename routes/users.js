@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const logger = require("../logger");
 const router = express.Router();
 const User = require("./../models/User");
 
@@ -53,6 +54,7 @@ router.post("/", async (req, res) => {
       message: "User Created Successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(500).json({
       message: error,
     });
@@ -72,6 +74,7 @@ router.get("/:id", async (req, res) => {
       data: user,
     });
   } catch (error) {
+    logger(error);
     res.status(404).json({
       message: "User Not Found",
     });
@@ -98,6 +101,7 @@ router.put("/:id", async (req, res) => {
       message: "User Updated Successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(500).json({
       message: error,
     });
@@ -113,6 +117,7 @@ router.delete("/:id", async (req, res) => {
       message: "User removed successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(404).json({
       message: "User not found",
     });

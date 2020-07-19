@@ -3,6 +3,7 @@ const router = express.Router();
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const logger = require("../logger");
 const User = require("./../models/User");
 const config = require("./../config");
 const auth = require("./../middleware/auth");
@@ -37,6 +38,7 @@ router.post("/login", async (req, res) => {
       }
     );
   } catch (error) {
+    logger(error);
     res.status(401).json({
       message: "Invalid credentials",
     });
@@ -52,6 +54,7 @@ router.get("/user", auth, async (req, res) => {
       data: user,
     });
   } catch (error) {
+    logger(error);
     res.status(401).json({
       message: "Invalid credentials",
     });

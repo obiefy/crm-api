@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
+const logger = require("../logger");
 const router = express.Router();
 const Lead = require("./../models/Lead");
 
@@ -44,6 +44,7 @@ router.post("/", async (req, res) => {
       message: "Client Created Successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(500).json({
       message: "Server error, please try again later",
     });
@@ -63,6 +64,7 @@ router.get("/:id", async (req, res) => {
       data: lead,
     });
   } catch (error) {
+    logger(error);
     res.status(404).json({
       message: "Client Not Found",
     });
@@ -89,6 +91,7 @@ router.put("/:id", async (req, res) => {
       message: "Client Updated Successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(500).json({
       message: "Server error, please try again later",
     });
@@ -104,6 +107,7 @@ router.delete("/:id", async (req, res) => {
       message: "Client removed successfully",
     });
   } catch (error) {
+    logger(error);
     res.status(404).json({
       message: "Client not found",
     });
