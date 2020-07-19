@@ -1,6 +1,6 @@
-@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1NmFlZWIzYmIxZDkwNjhiZGM3MCIsInJvbGUiOiJzdXBlci1hZG1pbiIsImlhdCI6MTU5NTEwNDQ3MCwiZXhwIjoxNTk1MTQwNDcwfQ.nhLP8FNBNmWJyxNbwWByzWb6ju_iZOjrUFFBwhqObsc
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1NmFlZWIzYmIxZDkwNjhiZGM3MCIsInJvbGUiOiJzdXBlci1hZG1pbiIsImlhdCI6MTU5NTE1ODQ1NCwiZXhwIjoxNTk1MTk0NDU0fQ.z1WM36g-wQEU1jl5tJ87bnGsZ0h_s2Mpb5LpkUY6ln4
 
-@staffToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTM1YTgxYzAyZTNiZGI0N2I4M2RhZiIsInJvbGUiOiJzdGFmZiIsImlhdCI6MTU5NTEwNDYyNCwiZXhwIjoxNTk1MTQwNjI0fQ.-gIHowswmQ7W55v497Fr_3RR5VGgScA_Y3fcwZhz6mY
+@staffToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTQzMDI5OTI4N2I0NDM2NjEwMGZhOSIsInJvbGUiOiJzdGFmZiIsImlhdCI6MTU5NTE1ODU3NCwiZXhwIjoxNTk1MTk0NTc0fQ.nMIvxePatOteQEUP3mr_oru8roXVwWiZ_rP1fTbGAB4
 
 @url = http://localhost:4000
 
@@ -45,12 +45,61 @@ Content-Type: application/json
 ### 
 
 # Delete user data
-DELETE {{url}}/api/users/5f135f784b5888de29e5b6d5
+DELETE {{url}}/api/users/5f1371008fc230e3d806c423
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
 ###
 
+
+# LEADS ENDPOINTS
+
+
+# Get all leads
+GET {{url}}/api/leads
+Authorization: Bearer {{staffToken}}
+
+###
+
+# Get one lead
+GET {{url}}/api/leads/5f1430899287b44366100faa
+Authorization: Bearer {{staffToken}}
+
+###
+
+# Add new lead
+POST {{url}}/api/leads
+Authorization: Bearer {{staffToken}}
+Content-Type: application/json
+
+{
+    "name": "New Clint",
+    "email": "new@gmail.com",
+    "phone": "1234564"
+}
+
+###
+
+# Update user data
+PUT {{url}}/api/leads/5f1430899287b44366100faa
+Authorization: Bearer {{staffToken}}
+Content-Type: application/json
+
+{
+    "name": "New Lead Name",
+    "email": "new-email@gmail.com",
+    "phone": "123456"
+}
+
+### 
+
+# Delete user data
+DELETE {{url}}/api/leads/5f1430899287b44366100faa
+Content-Type: application/json
+Authorization: Bearer {{staffToken}}
+
+
+###
 
 # AUTH ENDPOINTS
 
@@ -60,7 +109,7 @@ POST {{url}}/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "obay@gmail.com",
+    "email": "staff@gmail.com",
     "password": "123456"
 }
 

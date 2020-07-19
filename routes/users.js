@@ -6,7 +6,7 @@ const User = require("./../models/User");
 // @route GET api/users
 router.get("/", async (req, res) => {
   User.find()
-    .then((users) => res.json(users))
+    .then((users) => res.json({ data: users }))
     .catch((error) =>
       res.status(500).json({
         message: error,

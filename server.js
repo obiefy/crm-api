@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const config = require("./config");
 const auth = require("./middleware/auth");
 const admin = require("./middleware/admin");
+const staff = require("./middleware/staff");
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,7 @@ mongoose
   .catch((error) => console.log(error));
 
 app.use("/api/users", auth, admin, require("./routes/users"));
+app.use("/api/leads", auth, staff, require("./routes/leads"));
 app.use("/api/auth", require("./routes/auth"));
 
 app.listen(config.port, () => {
