@@ -1,14 +1,17 @@
 let fs = require("fs");
 
 const log = (error) => {
-  var today = new Date();
-  var date =
+  let today = new Date();
+  let date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  var time =
+  let time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date + " " + time;
+  let dateTime = date + " " + time;
 
   let content = `${dateTime} : ${error} \n`;
+
+  console.log(content);
+
   fs.appendFile("./logger/error.log", content, (err) => {
     return err;
   });
